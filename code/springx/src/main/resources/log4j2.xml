@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!--日志级别以及优先级排序:  高-低, 如果级别设置为info会输出比info级别高的日志信息
+             OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE >ALL -->
+<configuration status="WARN" monitorInterval="10">
+<!--全局参数-->
+<Properties>
+    <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %5p|%t|%C:%L-%m%n</Property>
+    <Property name="logDir">./logs</Property>
+    <Property name="serverName">springx</Property>
+</Properties>
+
+<Appenders>
+    <Console name="console" target="SYSTEM_OUT" follow="true">
+        <!--控制台只输出level及以上级别的信息-->
+        <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <PatternLayout Pattern="${pattern}" />
+    </Console>
+
+    <!-- 同一来源的Appender可以定义多个RollingFile，定义按天存储日志 -->
+    <RollingRandomAccessFile name="debug_log"
+                             filename="${logDir}/debug/${serverName}-debug.log"
+                             filePattern="${log.dir}/debug/%d{yyyy-MM-dd}/${serverName}-debug-%i.log"
+                             append="true"  >
+        <PatternLayout Pattern="${pattern}"></PatternLayout>
+        <Filters>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
+        </Filters>
+        <Policies>
+            <!-- 基于时间的滚动策略，interval属性用来指定多久滚动一次，默认是1 hour -->
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            <!-- 基于指定文件大小的滚动策略，size属性用来定义每个日志文件的大小 -->
+            <SizeBasedTriggeringPolicy size="10MB" />
+        </Policies>
+        <!-- DefaultRolloverStrategy 加属性：max="30" 保留近30天的日志文件 -->
+        <DefaultRolloverStrategy max="30"/>
+    </RollingRandomAccessFile>
+
+    <RollingRandomAccessFile name="info_log"
+                             filename="${logDir}/info/${serverName}-service.log"
+                             filePattern="${log.dir}/info/%d{yyyy-MM-dd}/${serverName}-info-%i.log"
+                             append="true"  >
+        <PatternLayout Pattern="${pattern}"></PatternLayout>
+        <Filters>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+        </Filters>
+        <Policies>
+            <!-- 基于时间的滚动策略，interval属性用来指定多久滚动一次，默认是1 hour -->
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            <!-- 基于指定文件大小的滚动策略，size属性用来定义每个日志文件的大小 -->
+            <SizeBasedTriggeringPolicy size="10MB" />
+        </Policies>
+        <!-- DefaultRolloverStrategy 加属性：max="30" 保留近30天的日志文件 -->
+        <DefaultRolloverStrategy max="30"/>
+    </RollingRandomAccessFile>
+
+    <RollingRandomAccessFile name="system_log"
+                             filename="${logDir}/system/${serverName}-system.log"
+                             filePattern="${log.dir}/system/%d{yyyy-MM-dd}/${serverName}-system-%i.log"
+                             append="true" >
+        <PatternLayout Pattern="${pattern}"></PatternLayout>
+        <Filters>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+        </Filters>
+        <Policies>
+            <!-- 基于时间的滚动策略，interval属性用来指定多久滚动一次，默认是1 hour -->
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            <!-- 基于指定文件大小的滚动策略，size属性用来定义每个日志文件的大小 -->
+            <SizeBasedTriggeringPolicy size="10MB" />
+        </Policies>
+        <!-- DefaultRolloverStrategy 加属性：max="30" 保留近30天的日志文件 -->
+        <DefaultRolloverStrategy max="30"/>
+    </RollingRandomAccessFile>
+
+    <RollingRandomAccessFile name="error_log"
+                             filename="${logDir}/error/${serverName}-error.log"
+                             filePattern="${log.dir}/error/%d{yyyy-MM-dd}/${serverName}-error-%i.log"
+                             append="true" >
+        <PatternLayout Pattern="${pattern}"></PatternLayout>
+        <Filters>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
+        </Filters>
+        <Policies>
+            <!-- 基于时间的滚动策略，interval属性用来指定多久滚动一次，默认是1 hour -->
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            <!-- 基于指定文件大小的滚动策略，size属性用来定义每个日志文件的大小 -->
+            <SizeBasedTriggeringPolicy size="10MB" />
+        </Policies>
+        <!-- DefaultRolloverStrategy 加属性：max="30" 保留近30天的日志文件 -->
+        <DefaultRolloverStrategy max="30"/>
+    </RollingRandomAccessFile>
+
+</Appenders>
+
+<Loggers>
+    <Root level="info">
+        <AppenderRef ref="console"></AppenderRef>
+        <AppenderRef ref="system_log"></AppenderRef>
+    </Root>
+
+    <logger name="debugLog" level="debug">
+        <AppenderRef ref="debug_log"></AppenderRef>
+    </logger>
+
+    <logger name="infoLog" level="info">
+        <AppenderRef ref="info_log"></AppenderRef>
+    </logger>
+
+    <logger name="systemLog" level="info">
+        <AppenderRef ref="system_log"></AppenderRef>
+    </logger>
+
+    <logger name="errorLog" level="error">
+        <AppenderRef ref="error_log"></AppenderRef>
+    </logger>
+</Loggers>
+</configuration>
