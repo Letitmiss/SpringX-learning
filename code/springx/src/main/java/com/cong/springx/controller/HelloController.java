@@ -26,7 +26,7 @@ public class HelloController  {
 
     @Autowired
     @Qualifier("errorLog")
-    public  Logger error_LOG;
+    public  Logger ERROR_LOG;
 
 
     @RequestMapping(value = "/name",method = RequestMethod.GET)
@@ -34,7 +34,6 @@ public class HelloController  {
         DEBUG_LOG.debug("debug :" + name);
         DEBUG_LOG.info("info: " + name);
         DEBUG_LOG.error("error :" + name);
-
         return "springx hello ," + name;
     }
 
