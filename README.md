@@ -6,6 +6,9 @@ learning...
 ### [2.SpringBoot项目配置](https://github.com/Letitmiss/SpringX-learning/blob/master/blog/01.springboot2.md)
 ### [3.Controller的配置](https://github.com/Letitmiss/SpringX-learning/blob/master/blog/01.springboot3.md)
 
+使用@Retryable和@Recover实现重处理 
+
+
 https://docs.servicecomb.io/java-chassis/zh_CN/edge/by-servicecomb-sdk.html
 
 
