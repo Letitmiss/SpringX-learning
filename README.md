@@ -38,4 +38,21 @@ eureka.server.enable-self-preservation=false #禁用自我保护机制
 隔几秒   
 eureka.instance.lease-renewal-interval-in-seconds=2   
 多少秒之后没故障,就提出我这个服务   
-eureka.instance.lease-expiration-duration-in-seconds=10   
+eureka.instance.lease-expiration-duration-in-seconds=10
+
+# ribbon
+
+1. 创建多服务提供之者   
+* 复制项目 :  重构命名 , 修改端口(同一个机器的端口)
+IRule 负载均衡规则;
+```
+@Bean
+public IRule() {
+rerurn new RandomRule(); //随机策略
+}
+```
+
+
+
+
+
