@@ -55,6 +55,8 @@ rerurn new RandomRule(); //随机策略
 }
 ```
 
+## 配置中心
+
 
 
 
