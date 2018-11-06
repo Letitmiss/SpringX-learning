@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cong</groupId>
-    <artifactId>consumer01</artifactId>
+    <artifactId>provider02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>consumer01</name>
+    <name>provider02</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -42,11 +42,6 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
 
     </dependencies>
 
