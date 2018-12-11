@@ -3,8 +3,6 @@ package com.cong.springx.common.log;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,13 +12,11 @@ public class LogManager {
     @Bean(name = "debugLog")
     public Logger getDebugLogger() {
         return LoggerFactory.getLogger("debugLog");
-
     }
 
     @Bean(name = "infoLog")
     public Logger getInfoLogger() {
         return LoggerFactory.getLogger("infoLog");
-
     }
 
     @Bean(name = "systemLog")
@@ -32,6 +28,5 @@ public class LogManager {
     public Logger getErrorLogger() {
         return LoggerFactory.getLogger("errorLog");
     }
-
 
 }

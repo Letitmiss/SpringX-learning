@@ -4,7 +4,7 @@
 <configuration status="WARN" monitorInterval="10">
 <!--全局参数-->
 <Properties>
-    <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %5p|%t|%C:%L-%m%n</Property>
+    <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %5p|%t|%C:%L - %m%n</Property>
     <Property name="logDir">./logs</Property>
     <Property name="serverName">springx</Property>
 </Properties>
@@ -103,6 +103,7 @@
 
     <logger name="infoLog" level="info">
         <AppenderRef ref="info_log"></AppenderRef>
+        <AppenderRef ref="error_log"></AppenderRef>
     </logger>
 
     <logger name="systemLog" level="info">
