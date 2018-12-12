@@ -8,7 +8,9 @@ learning...
 
 使用@Retryable和@Recover实现重处理 
 
-## 整合redis
+## 整合Redis
+### 1.redis的基础部署
+
 
 https://docs.servicecomb.io/java-chassis/zh_CN/edge/by-servicecomb-sdk.html
 
