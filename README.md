@@ -8,6 +8,7 @@ learning...
 
 使用@Retryable和@Recover实现重处理 
 
+## 整合redis
 
 https://docs.servicecomb.io/java-chassis/zh_CN/edge/by-servicecomb-sdk.html
 
